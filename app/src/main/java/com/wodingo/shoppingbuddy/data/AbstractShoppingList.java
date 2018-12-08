@@ -33,6 +33,11 @@ public abstract class AbstractShoppingList implements ShoppingList {
 
     }
 
+    @Override
+    public int getCount() {
+        return items.size();
+    }
+
     //Reads the list and places it into fileName which is used as the value of shoppingList.txt
     //Throws an IO exception if it can't do it.
     @Override

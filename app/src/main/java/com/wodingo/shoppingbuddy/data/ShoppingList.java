@@ -14,5 +14,6 @@ public interface ShoppingList {
     void printList();
     ShoppingList shop(double budget);
     double getTotalCost();
+    int getCount();
 
 }

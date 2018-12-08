@@ -10,7 +10,14 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class ShoppingList extends AppCompatActivity {
+import com.wodingo.shoppingbuddy.adapters.ShoppingListAdapter;
+import com.wodingo.shoppingbuddy.data.ShoppingList;
+
+public class ShoppingListActivity extends AppCompatActivity {
+
+    private ShoppingList shoppingList;
+    private ShoppingListAdapter shoppingListadapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +25,8 @@ public class ShoppingList extends AppCompatActivity {
         setContentView(R.layout.activity_shopping_list);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
