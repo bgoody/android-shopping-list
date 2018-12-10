@@ -11,4 +11,6 @@
     <string name="enter_budget">Enter your shopping budget</string>
     <string name="add">Add</string>
     <string name="buy">Buy Items</string>
+    <string name="shopping_results">Shopping Results</string>
+    <string name="close">Close</string>
 </resources>

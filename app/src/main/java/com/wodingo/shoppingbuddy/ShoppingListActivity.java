@@ -18,14 +18,18 @@ import com.wodingo.shoppingbuddy.data.ShoppingList;
 import com.wodingo.shoppingbuddy.data.ValidationException;
 import com.wodingo.shoppingbuddy.dialogs.AddItemDialog;
 import com.wodingo.shoppingbuddy.dialogs.BudgetDialog;
+import com.wodingo.shoppingbuddy.dialogs.ResultsDialog;
 
 import java.io.File;
 import java.io.IOException;
 
-public class ShoppingListActivity extends AppCompatActivity implements AddItemDialog.AddItemListener, BudgetDialog.BudgetListener {
+public class ShoppingListActivity extends AppCompatActivity implements AddItemDialog.AddItemListener, BudgetDialog.BudgetListener
+, ResultsDialog.ResultsListener {
 
     private ShoppingList shoppingList;
     private ShoppingListAdapter shoppingListAdapter;
+    private ShoppingList results;
+    private double remaining;
 
 
     @Override
@@ -76,6 +80,7 @@ public class ShoppingListActivity extends AppCompatActivity implements AddItemDi
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_shop) {
+            //Shows a dialog
             new BudgetDialog().show(getSupportFragmentManager(),"Shop");
             return true;
         }
@@ -118,8 +123,20 @@ public class ShoppingListActivity extends AppCompatActivity implements AddItemDi
 
     @Override
     public void setBudget(double budget) {
-        shoppingList.shop(budget);
+        results = shoppingList.shop(budget);
+        remaining = budget - results.getTotalCost();
+        new ResultsDialog().show(getSupportFragmentManager(),"results");
         saveList();
         shoppingListAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public ShoppingList getResults() {
+        return results;
+    }
+
+    @Override
+    public double getRemainingBudget() {
+        return remaining;
     }
 }
