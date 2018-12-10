@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Shopping Buddy</string>
     <string name="action_settings">Settings</string>
+    <string name="item_name">Item Name</string>
+    <string name="item_quantity">Item Quantity</string>
+    <string name="item_price">Item Price</string>
+    <string name="item_priority_1_5">Item Priority (1–5)</string>
+    <string name="cancel">Cancel</string>
+    <string name="shop">Shop</string>
 </resources>

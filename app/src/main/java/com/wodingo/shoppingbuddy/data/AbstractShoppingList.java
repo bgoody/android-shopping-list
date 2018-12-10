@@ -41,8 +41,7 @@ public abstract class AbstractShoppingList implements ShoppingList {
     //Reads the list and places it into fileName which is used as the value of shoppingList.txt
     //Throws an IO exception if it can't do it.
     @Override
-    public void readFile(String fileName) throws IOException {
-        File file = new File(fileName);
+    public void readFile(File file) throws IOException {
         //Attempt to read the file and assign each field to line
         try (FileReader reader = new FileReader(file); BufferedReader br = new BufferedReader(reader)) {
             String line;
@@ -59,8 +58,7 @@ public abstract class AbstractShoppingList implements ShoppingList {
 
     //Writes the file to fileName and then clears the buffer/memory with the flush method
     @Override
-    public void writeFile(String fileName) throws IOException {
-        File file = new File(fileName);
+    public void writeFile(File file) throws IOException {
         try (PrintStream writer = new PrintStream(file)) {
             for (Item item : items) {
                 @SuppressLint("DefaultLocale") String line = String.format("%s,%f,%d,%d", item.getName(), item.getPrice(), item.getPriority(), item.getQuantity());
