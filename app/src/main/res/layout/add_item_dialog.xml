@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -10,7 +11,9 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/item_name"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:importantForAutofill="no"
+        tools:targetApi="o" />
 
     <EditText
         android:id="@+id/itemPrice"
@@ -18,7 +21,9 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/item_price"
-        android:inputType="numberDecimal" />
+        android:inputType="numberDecimal"
+        android:importantForAutofill="no"
+        tools:targetApi="o" />
 
     <EditText
         android:id="@+id/itemQuantity"
@@ -26,7 +31,9 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/item_quantity"
-        android:inputType="number" />
+        android:inputType="number"
+        android:importantForAutofill="no"
+        tools:targetApi="o" />
 
     <EditText
         android:id="@+id/itemPriority"
@@ -34,6 +41,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/item_priority_1_5"
-        android:inputType="number" />
+        android:inputType="number"
+        android:importantForAutofill="no"
+        tools:targetApi="o" />
 
 </LinearLayout>
