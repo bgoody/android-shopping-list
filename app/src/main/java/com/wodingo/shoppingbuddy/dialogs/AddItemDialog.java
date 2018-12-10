@@ -53,7 +53,7 @@ public class AddItemDialog extends DialogFragment {
                 AddItemDialog.this.getDialog().cancel();
             }
         });
-        builder.setPositiveButton("Add", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(R.string.add, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 listener.addItem(

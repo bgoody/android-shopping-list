@@ -7,4 +7,8 @@
     <string name="item_priority_1_5">Item Priority (1–5)</string>
     <string name="cancel">Cancel</string>
     <string name="shop">Shop</string>
+    <string name="budget">Budget</string>
+    <string name="enter_budget">Enter your shopping budget</string>
+    <string name="add">Add</string>
+    <string name="buy">Buy Items</string>
 </resources>
