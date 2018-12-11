@@ -40,6 +40,7 @@ public class AddItemDialog extends DialogFragment {
 
     @NonNull
     @Override
+    //Begins when the dialog is shown
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(Objects.requireNonNull(getActivity()));
         @SuppressLint("InflateParams") View view = getActivity().getLayoutInflater().inflate(R.layout.add_item_dialog, null);

@@ -24,6 +24,7 @@ import com.wodingo.shoppingbuddy.dialogs.ResultsDialog;
 import java.io.File;
 import java.io.IOException;
 
+//In order to display anything to the user we require an activity
 public class ShoppingListActivity extends AppCompatActivity implements AddItemDialog.AddItemListener, BudgetDialog.BudgetListener
 , ResultsDialog.ResultsListener {
 
@@ -35,8 +36,10 @@ public class ShoppingListActivity extends AppCompatActivity implements AddItemDi
 
 
     @Override
+    //When the Activity is started this method is called
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Inflate the layout
         setContentView(R.layout.activity_shopping_list);
         emptyMessage = findViewById(R.id.emptyMessage);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -44,8 +47,10 @@ public class ShoppingListActivity extends AppCompatActivity implements AddItemDi
 
         shoppingList = new BubbleSortShoppingList();
 
+        //Loads the data from the shopping list file if it exists
         openList();
 
+        //Once there is something in the list the message is removed
         if (shoppingList.getCount() > 0){
             emptyMessage.setVisibility(View.GONE);
         }
@@ -61,6 +66,7 @@ public class ShoppingListActivity extends AppCompatActivity implements AddItemDi
 
         shoppingListView.setAdapter(shoppingListAdapter);
 
+        //When the action button is clicked it shows the add item dialog
         FloatingActionButton addButton = findViewById(R.id.fab);
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,7 +79,7 @@ public class ShoppingListActivity extends AppCompatActivity implements AddItemDi
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+        // Inflate the menu; this adds items to the action bar if it is present (shop).
         getMenuInflater().inflate(R.menu.menu_shopping_list, menu);
         return true;
     }

@@ -7,6 +7,10 @@ public class Item {
     private int priority;
     private int quantity;
 
+    public Item (){
+
+    }
+
     public Item (String name, double price, int priority, int quantity) {
 
         setName(name);

@@ -11,7 +11,9 @@ import com.wodingo.shoppingbuddy.data.Item;
 import com.wodingo.shoppingbuddy.data.ShoppingList;
 
 import java.text.NumberFormat;
-
+//The adapter is what is used to display the items within the RecyclerView.
+//The RecyclerView is a view that is a class in a library written by Google.
+//It is intended to display a list of some sort in an efficient manner.
 public class ShoppingListAdapter extends RecyclerView.Adapter<ShoppingListAdapter.ItemViewHolder> {
 
     private ShoppingList shoppingList;
@@ -40,6 +42,7 @@ public class ShoppingListAdapter extends RecyclerView.Adapter<ShoppingListAdapte
     }
 
     @Override
+    //Gets number of items in the list
     public int getItemCount() {
         return shoppingList.getCount();
     }
@@ -49,7 +52,8 @@ public class ShoppingListAdapter extends RecyclerView.Adapter<ShoppingListAdapte
         public TextView itemPrice;
         public TextView itemQuantity;
 
-
+        //Provides easy access to the bits that we are going to change
+        //within the particular views (name, price, quantity)
         public ItemViewHolder(@NonNull View itemView) {
             super(itemView);
 
