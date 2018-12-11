@@ -10,6 +10,8 @@ import com.wodingo.shoppingbuddy.R;
 import com.wodingo.shoppingbuddy.data.Item;
 import com.wodingo.shoppingbuddy.data.ShoppingList;
 
+import java.text.NumberFormat;
+
 public class ShoppingListAdapter extends RecyclerView.Adapter<ShoppingListAdapter.ItemViewHolder> {
 
     private ShoppingList shoppingList;
@@ -33,7 +35,7 @@ public class ShoppingListAdapter extends RecyclerView.Adapter<ShoppingListAdapte
         Item item = shoppingList.getSortedList().get(i);
 
         itemViewHolder.itemName.setText(item.getName());
-        itemViewHolder.itemPrice.setText(String.valueOf(item.getPrice()));
+        itemViewHolder.itemPrice.setText(NumberFormat.getCurrencyInstance().format(item.getPrice()));
         itemViewHolder.itemQuantity.setText(String.valueOf(item.getQuantity()));
     }
 

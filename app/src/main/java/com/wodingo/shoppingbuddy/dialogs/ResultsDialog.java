@@ -18,6 +18,7 @@ import com.wodingo.shoppingbuddy.R;
 import com.wodingo.shoppingbuddy.adapters.ShoppingListAdapter;
 import com.wodingo.shoppingbuddy.data.ShoppingList;
 
+import java.text.NumberFormat;
 import java.util.Objects;
 
 public class ResultsDialog extends DialogFragment {
@@ -45,9 +46,9 @@ public class ResultsDialog extends DialogFragment {
         }
         @SuppressLint("InflateParams") View view = getActivity().getLayoutInflater().inflate(R.layout.shopping_results_dialog, null);
         TextView remainingView = view.findViewById(R.id.remainingView);
-        remainingView.setText(String.valueOf(listener.getRemainingBudget()));
+        remainingView.setText(NumberFormat.getCurrencyInstance().format(listener.getRemainingBudget()));
         TextView spentView = view.findViewById(R.id.spentView);
-        spentView.setText(String.valueOf(results.getTotalCost()));
+        spentView.setText(NumberFormat.getCurrencyInstance().format(results.getTotalCost()));
         RecyclerView resultsView = view.findViewById(R.id.resultsView);
         resultsView.setLayoutManager(new LinearLayoutManager(getContext()));
         resultsView.setAdapter(new ShoppingListAdapter(results));

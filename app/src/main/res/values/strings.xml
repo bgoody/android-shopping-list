@@ -15,4 +15,10 @@
     <string name="close">Close</string>
     <string name="fields_required">All fields are required!</string>
     <string name="list_empty">Your list is empty. Please press the add button to add an item to your list.</string>
+    <string name="name">Name:</string>
+    <string name="price">Price:</string>
+    <string name="quantity">Quantity:</string>
+    <string name="amount_spent">Amount Spent:</string>
+    <string name="budget_remaining">Budget Remaining:</string>
+    <string name="unpurchasedMessage">Any unpurchased items are still in your shopping list.</string>
 </resources>

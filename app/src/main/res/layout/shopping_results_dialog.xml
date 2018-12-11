@@ -4,19 +4,55 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/amount_spent" />
+
+            <TextView
+                android:id="@+id/spentView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/budget_remaining" />
+
+            <TextView
+                android:id="@+id/remainingView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </TableRow>
+
+    </TableLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/unpurchasedMessage" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/resultsView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_weight="1" >
 
-    <TextView
-        android:id="@+id/spentView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+    </android.support.v7.widget.RecyclerView>
 
-    <TextView
-        android:id="@+id/remainingView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 </LinearLayout>
