@@ -11,6 +11,7 @@ import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.wodingo.shoppingbuddy.R;
 
@@ -56,12 +57,17 @@ public class AddItemDialog extends DialogFragment {
         builder.setPositiveButton(R.string.add, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                listener.addItem(
-                        itemNameInput.getText().toString(),
-                        Double.parseDouble(itemPriceInput.getText().toString()),
-                        Integer.parseInt(itemQuantityInput.getText().toString()),
-                        Integer.parseInt(itemPriorityInput.getText().toString())
-                );
+                //Check for empty fields
+                try {
+                    listener.addItem(
+                            itemNameInput.getText().toString(),
+                            Double.parseDouble(itemPriceInput.getText().toString()),
+                            Integer.parseInt(itemQuantityInput.getText().toString()),
+                            Integer.parseInt(itemPriorityInput.getText().toString())
+                    );
+                } catch (NumberFormatException e) {
+                    Toast.makeText(getContext(), getString(R.string.fields_required), Toast.LENGTH_LONG).show();
+                }
             }
         });
         return builder.create();

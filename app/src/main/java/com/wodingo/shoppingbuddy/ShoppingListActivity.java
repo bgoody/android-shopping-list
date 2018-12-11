@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.wodingo.shoppingbuddy.adapters.ShoppingListAdapter;
@@ -30,18 +31,24 @@ public class ShoppingListActivity extends AppCompatActivity implements AddItemDi
     private ShoppingListAdapter shoppingListAdapter;
     private ShoppingList results;
     private double remaining;
+    private TextView emptyMessage;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shopping_list);
+        emptyMessage = findViewById(R.id.emptyMessage);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         shoppingList = new BubbleSortShoppingList();
 
         openList();
+
+        if (shoppingList.getCount() > 0){
+            emptyMessage.setVisibility(View.GONE);
+        }
 
         shoppingListAdapter = new ShoppingListAdapter(shoppingList);
 
@@ -92,10 +99,13 @@ public class ShoppingListActivity extends AppCompatActivity implements AddItemDi
     public void addItem(String name, double price, int quantity, int priority) {
         try {
             shoppingList.addItem(new Item(name, price, priority, quantity));
+            if (shoppingList.getCount() > 0){
+                emptyMessage.setVisibility(View.GONE);
+            }
             saveList();
             shoppingListAdapter.notifyDataSetChanged();
         }catch (ValidationException e){
-            Toast.makeText(this, "Invalid Data!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
 
     }

@@ -11,6 +11,7 @@ import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.wodingo.shoppingbuddy.R;
 
@@ -37,7 +38,12 @@ public class BudgetDialog extends DialogFragment {
         builder.setPositiveButton(R.string.buy, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                listener.setBudget(Double.parseDouble(budgetInput.getText().toString()));
+                //check for empty fields
+                try {
+                    listener.setBudget(Double.parseDouble(budgetInput.getText().toString()));
+                } catch (NumberFormatException e) {
+                    Toast.makeText(getContext(), getString(R.string.fields_required), Toast.LENGTH_LONG).show();
+                }
             }
         });
         return builder.create();

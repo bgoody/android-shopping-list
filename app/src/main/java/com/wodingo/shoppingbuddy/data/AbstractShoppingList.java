@@ -21,6 +21,12 @@ public abstract class AbstractShoppingList implements ShoppingList {
     //adds an item to the list
     @Override
     public void addItem(Item item) {
+        //Check for duplicates
+        for (Item aItem : items) {
+            if (aItem.getName().equals(item.getName())) {
+                throw new ValidationException("That item is already on your list!");
+            }
+        }
         items.add(item);
     }
 

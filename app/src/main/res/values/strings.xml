@@ -13,4 +13,6 @@
     <string name="buy">Buy Items</string>
     <string name="shopping_results">Shopping Results</string>
     <string name="close">Close</string>
+    <string name="fields_required">All fields are required!</string>
+    <string name="list_empty">Your list is empty. Please press the add button to add an item to your list.</string>
 </resources>

@@ -8,10 +8,20 @@
     tools:context=".ShoppingListActivity"
     tools:showIn="@layout/activity_shopping_list">
 
+    <TextView
+        android:id="@+id/emptyMessage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:padding="25dp"
+        android:text="@string/list_empty" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/shoppingList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent" >
+
+    </android.support.v7.widget.RecyclerView>
 
 
 </FrameLayout>

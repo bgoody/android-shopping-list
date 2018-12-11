@@ -23,7 +23,7 @@ public class Item {
     //I check for a comma because I use it as a delimiter in other methods.
     public void setName(String name) {
         if (name == null || name.isEmpty() || name.contains(",")) {
-            throw new ValidationException();
+            throw new ValidationException("Item name cannot be empty or contain commas.");
         }
         this.name = name;
     }
@@ -35,7 +35,7 @@ public class Item {
     //Sets the price and throws an exception from my ValidationException class in the event that the price is less than 0
     public void setPrice(double price) {
         if (price < 0) {
-            throw new ValidationException();
+            throw new ValidationException("Item price cannot be negative!");
         }
         this.price = price;
     }
@@ -47,7 +47,7 @@ public class Item {
     //Sets the priority and makes sure it is an int 1 through 5, else it throws an object from my ValidationException class.
     public void setPriority(int priority) {
         if (priority < 1 || priority > 5) {
-            throw new ValidationException();
+            throw new ValidationException("Item priority must be an integer between 1 and 5.");
         }
         this.priority = priority;
     }
@@ -58,7 +58,7 @@ public class Item {
     //Sets the quantity and makes sure it is not less than one, else it throws an object from my ValidationException class.
     public void setQuantity(int quantity) {
         if (quantity < 1) {
-            throw new ValidationException();
+            throw new ValidationException("Item quantity must be positive!");
         }
         this.quantity = quantity;
     }
